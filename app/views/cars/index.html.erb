@@ -1,17 +1,15 @@
 <div class="container w-75">
-
-<div class="cards">
-  <% @cars.each do |car| %>
-    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3))">
-      <div>
-        <h1 class="card-title"><%= link_to car.brand, car_path(car) %></h1>
-        <p class="card-text"><%= car.model %></p>
-        <p class="card-text"><%= car.created_at.strftime("%e %b %Y %H:%M:%S %p") %></p>
-        <p class="card-text"><%= car.owner.nickname %></p>
+  <div class="cards">
+    <% @cars.each do |car| %>
+      <div class="card-category"
+           style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= car.image_url if car.image_url.present? %>');">
+        <div>
+          <h1 class="card-title"><%= link_to car.brand, car_path(car) %></h1>
+          <p class="card-text"><%= car.model %></p>
+          <p class="card-text"><%= car.created_at.strftime("%e %b %Y %H:%M:%S %p") %></p>
+          <p class="card-text"><%= car.owner.nickname %></p>
+        </div>
       </div>
-    </div>
-  <% end %>
-</div>
-
-
+    <% end %>
+  </div>
 </div>

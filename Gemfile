@@ -72,3 +72,4 @@ group :test do
 end
 
 gem "cloudinary", "~> 2.3"
+gem "faker"

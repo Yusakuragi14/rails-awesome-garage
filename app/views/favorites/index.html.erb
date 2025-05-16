@@ -4,8 +4,8 @@
     <% @favorites.each do |favorite| %>
       <li><%= favorite.car.brand %> |
       <%= favorite.car.model %> |
-      <%= link_to "❌ Remove",
-      favorite_path(favorite),{turbo_method: :delete, turbo_confirm: "Are you sure?"} %>  </li>
+      <%= link_to "❌ Remove", favorite_path(favorite), data: {turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+  </li>
     <% end %>
   </ul>
 </div>

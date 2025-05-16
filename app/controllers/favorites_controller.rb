@@ -5,11 +5,11 @@ class FavoritesController < ApplicationController
     @cars = Car.all
   end
 
+
   def create
     @favorite = Favorite.new
-    @favorite.car = @car
     @car = Car.find_by(id: params[:car_id])
-
+    @favorite.car = @car
     if @favorite.save
       redirect_to car_path(@car), notice: 'Car was successfully added to favorites.'
     else
